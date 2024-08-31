@@ -585,7 +585,7 @@ text-align: center;
 .slider{
     position: relative;
     z-index:99999;
-    margin-left:0;
+    margin-left:-42vw;
     height: 25vw;
     width: -webkit-fit-content;
     width: -moz-fit-content;
