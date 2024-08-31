@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 
 
 *{
@@ -9,7 +16,7 @@ body{width: 100%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    overflow: scroll;
+    overflow: hidden;
     scrollbar-width: 0px;
     background-image:url(background.jpg) ;
 
@@ -21,25 +28,28 @@ body{width: 100%;
     --text-default:0 0 5px lightblue;
 }
 
-.loader{
-     width: 100%;
-     height: 100vh;
-}
+
 .twrap{
     visibility: hidden;
+    
 }
 .spinner {
     position: relative;
     z-index: 5;
     margin-top: calc(50vh - 100px);
+    background-image: -webkit-gradient(linear,left top, left bottom,color-stop(35%, rgb(171, 25, 255)),to(rgb(0, 225, 255)));
+    background-image: -o-linear-gradient(rgb(171, 25, 255) 35%,rgb(0, 225, 255));
     background-image: linear-gradient(rgb(171, 25, 255) 35%,rgb(0, 225, 255));
     width: 200px;
     height: 200px;
-    animation: spinning82341 2s linear infinite;
+    -webkit-animation: spinning82341 2s linear infinite;
+            animation: spinning82341 2s linear infinite;
     text-align: center;
     border-radius: 50%;
-    filter: blur(1px);
-    box-shadow: 0px -5px 20px 0px rgb(171, 25, 255), 0px 5px 20px 0px rgb(0, 225, 255);
+    -webkit-filter: blur(1px);
+            filter: blur(1px);
+    -webkit-box-shadow: 0px -5px 20px 0px rgb(171, 25, 255), 0px 5px 20px 0px rgb(0, 225, 255);
+            box-shadow: 0px -5px 20px 0px rgb(171, 25, 255), 0px 5px 20px 0px rgb(0, 225, 255);
   }
   
 .spinner1 {
@@ -47,17 +57,27 @@ background-color: black;
 width: 200px;
 height: 190px;
 border-radius: 50%;
-filter: blur(10px);
+-webkit-filter: blur(10px);
+        filter: blur(10px);
+}
+
+@-webkit-keyframes spinning82341 {
+to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
 }
 
 @keyframes spinning82341 {
 to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
 }
 }
 
 body::-webkit-scrollbar{
     display: none;}
+
 .introduction{
     height: 65vw;
     width: 100%;
@@ -490,14 +510,7 @@ text-align: center;
     fill: whitesmoke;
 }
 
-.gallery{
-    padding-top: 15vh;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 100%;
-    pointer-events: all;
-}
+
 @-webkit-keyframes landrocket {
     0%{
      -webkit-transform: translate(0vw,-95vh) rotate(180deg) ;
@@ -551,6 +564,15 @@ text-align: center;
            transform: rotate(180deg);  
    
 }
+.gallery{
+    padding-top: 15vh;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    pointer-events: all;
+
+}
 .beh{
     height: 300%;
     width: 100%;
@@ -559,8 +581,8 @@ text-align: center;
     pointer-events: none;
 }
 .f{
-    margin-top: 10%;
     overflow: hidden;
+    margin-top: 10%;
     position: relative;
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -584,6 +606,7 @@ text-align: center;
         -ms-flex-direction: row;
             flex-direction: row;
     gap: 3vw;
+
     
 }
 .sliderindexwrap{
@@ -605,7 +628,7 @@ text-align: center;
 }
 
 .sah,.sad{
-    position: absolute;
+    position:absolute;
     z-index: 999999;
     width: -webkit-fit-content;
     width: -moz-fit-content;
@@ -640,6 +663,9 @@ text-align: center;
     fill:rgba(162, 161, 161, 0.537);
     height: 100%;
     
+}
+.butt svg:active{
+    fill: var(--color2);
 }
 .go_right{
    
@@ -796,6 +822,28 @@ text-align: center;
     }
     .team{
         padding-top:37vh ;
+    }
+    .sah,.sad{
+        display: none;
+    }
+    .f{
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
+    .slider::-webkit-scrollbar {
+        display: none; 
+    }
+    .sliderindexwrap{
+        display: none;
+    }
+    .project{
+        height: 80vh;
     }
 
 }
