@@ -1,8 +1,11 @@
-setTimeout(() => {
+function loaded(){
     document.querySelector('.spinner').style.display = 'none';
-    document.querySelector('.twrap').style.visibility = 'visible';
-}, 3000); // Adjust the timeout duration as necessary
+document.querySelector('.twrap').style.visibility = 'visible';
+document.querySelector('body').style.overflow='scroll';
 
+}
+
+window.addEventListener('load',loaded);
 
 function typewrite() {
     const selector=".title h4";
@@ -28,7 +31,8 @@ setInterval(typewrite,2000);
 var i=0;
 setTimeout(setInterval(changefont,1000),5000)
 
-const cards = document.querySelectorAll('.card');
+function resizefont(){
+    const cards = document.querySelectorAll('.card');
 const cardb=document.querySelectorAll(".card-back");
 cardb.forEach(cb=>{
     const fs=cb.clientWidth*0.07;
@@ -40,6 +44,11 @@ cards.forEach(card => {
     card.style.fontSize = `${fontSize}px`;
 
 });
+}
+resizefont()
+window.addEventListener('resize', resizefont);
+window.addEventListener('orientationchange', resizefont);
+
 function ultin(){
     const ult=document.querySelector(".ult"); 
     ult.style="opacity:1;-webkit-transition:1.2s ease;-o-transition:1.2s ease;transition:1.2s ease;";
@@ -52,11 +61,13 @@ function bruh(){
     const py=project.offsetTop;
     var scroll_pos=parseInt(window.scrollY);
     const rocket=document.querySelector(".rocket");
+    const insiderocket=document.querySelector(".beh");
     const ph=(project.clientHeight)*0.4; 
-    if(scroll_pos>py && runt<1){
+    if(scroll_pos>py && runt==0){
             var meh=py+ph;
-            rocket.style='-webkit-animation: landrocket 1.5s ease-out forwards;animation: landrocket 1.5s ease-out forwards;'
             $(".rocket").appendTo($(".project"));
+            rocket.style='-webkit-animation: landrocket 1.5s ease-out forwards;animation: landrocket 1.5s ease-out forwards;';
+            insiderocket.style='pointer-events: all;'
             runt=1
             setTimeout(ultin,800);
         }  
@@ -157,8 +168,6 @@ function  loadmedia(foldername,imgfile,chosendiv){
         .catch(error => console.error('Error fetching media:', error));
   };
 loadmedia("ast","images6.json",false)
-
-
 
 
 
