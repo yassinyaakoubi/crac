@@ -573,6 +573,7 @@ text-align: center;
     pointer-events: none;
 }
 .f{
+    
     overflow: hidden;
     margin-top: 10%;
     position: relative;
@@ -583,6 +584,7 @@ text-align: center;
 }
 
 .slider{
+
     position: relative;
     z-index:99999;
     margin-left:-42vw;
